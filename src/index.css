@@ -1,0 +1,15 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* нічого темного, фон і кольори ми задаємо в App.css */
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
