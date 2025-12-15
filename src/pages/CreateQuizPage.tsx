@@ -31,7 +31,7 @@ export default function CreateQuizPage() {
     const newQuestion: Question = {
       id: generateId(),
       text: "",
-      options: createEmptyOptions(3), // одразу 3 варіанти
+      options: createEmptyOptions(3),
       mode: "single",
     };
     setQuestions((prev) => [...prev, newQuestion]);
@@ -43,7 +43,6 @@ export default function CreateQuizPage() {
     );
   }
 
-  // В тебе це вже було – лишаємо, просто вставляю сюди для повної картини
   function handleQuestionModeChange(id: string, mode: QuestionMode) {
     setQuestions((prev) =>
       prev.map((q) => {
@@ -57,7 +56,6 @@ export default function CreateQuizPage() {
           return { ...q, mode, options };
         }
 
-        // single/multiple – гарантуємо мінімум 3 варіанти
         let options = q.options;
         if (options.length < 3) {
           options = [...options, ...createEmptyOptions(3 - options.length)];
@@ -107,7 +105,6 @@ export default function CreateQuizPage() {
     );
   }
 
-  // ⬇⬇⬇ ОЦЕ – НОВА ВЕРСІЯ handleMarkOptionCorrect ⬇⬇⬇
   function handleMarkOptionCorrect(questionId: string, optionId: string) {
     setQuestions((prev) =>
       prev.map((q) => {
@@ -115,7 +112,6 @@ export default function CreateQuizPage() {
 
         const mode: QuestionMode = (q.mode as QuestionMode) ?? "single";
 
-        // multiple: можна кілька правильних – просто тумблер
         if (mode === "multiple") {
           return {
             ...q,
@@ -124,8 +120,6 @@ export default function CreateQuizPage() {
             ),
           };
         }
-
-        // single / true_false: тільки один правильний
         return {
           ...q,
           options: q.options.map((o) => ({
@@ -136,7 +130,6 @@ export default function CreateQuizPage() {
       })
     );
   }
-  // ⬆⬆⬆ КІНЕЦЬ НОВОЇ handleMarkOptionCorrect ⬆⬆⬆
 
   function handleDeleteOption(questionId: string, optionId: string) {
     setQuestions((prev) =>
@@ -360,7 +353,7 @@ export default function CreateQuizPage() {
                         }
                         placeholder="Answer text"
                         style={{ flex: 1, padding: "4px 8px" }}
-                        disabled={isTrueFalse} // у True/False текст фіксований
+                        disabled={isTrueFalse}
                       />
                       {!isTrueFalse && (
                         <button
