@@ -19,8 +19,6 @@ export default function QuizResultPage() {
   [clampedPercent]
     );
 
-
-  // If the user opened this page without an attempt object
   if (!attempt) {
     return (
       <div className="page">
