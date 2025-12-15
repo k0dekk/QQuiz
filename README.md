@@ -39,7 +39,7 @@ Built with **React + TypeScript**, featuring a clean component structure, themed
 ## 🛠️ Tech Stack
 - **React**
 - **TypeScript**
-- **Vite** (or CRA — replace if needed)
+- **Vite**
 - **localStorage** for persistence
 - Custom UI components (ToastContext, BackButton, Theme Switch)
 
@@ -47,6 +47,7 @@ Built with **React + TypeScript**, featuring a clean component structure, themed
 
 ## 📦 Getting Started
 
-### 1) Install dependencies
 ```bash
 npm install
+npm run dev
+
